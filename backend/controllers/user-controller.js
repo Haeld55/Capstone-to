@@ -8,9 +8,8 @@ export const test = (req, res) => {
 };
 
 export const updateUser = async (req, res, next) => {
-  if (req.user.id !== req.params.id)
-    return next(errorHandler(401, 'You can only update your own account!'));
   try {
+    const userId = req.params.id;
     const {
       username,
       email,
@@ -34,7 +33,7 @@ export const updateUser = async (req, res, next) => {
     }
 
     // Find the user by ID
-    const userToUpdate = await User.findById(req.params.id);
+    const userToUpdate = await User.findById(userId);
 
     if (!userToUpdate) {
       return res.status(404).json({ error: 'User not found' });
@@ -61,7 +60,7 @@ export const updateUser = async (req, res, next) => {
     res.status(200).json(updatedUser);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Internal Server Error', error: error.message });
+    res.status(500).json({ message: 'Internal Server Error' });
   }
 };
 
