@@ -7,7 +7,7 @@ export default function FeedBack() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/star/view');
+        const response = await fetch('https://capstonebackend-td72.onrender.com/api/star/view');
         const data = await response.json();
         setReviews(data);
       } catch (error) {

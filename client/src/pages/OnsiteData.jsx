@@ -54,7 +54,7 @@ export default function OnsiteData() {
   const handleUnArchive = async (orderId) => {
     try {
       // Make a request to your API endpoint with the updated values
-      const response = await axios.put(`api/add/unarchive/${orderId}`, {
+      const response = await axios.put(`https://capstonebackend-td72.onrender.com/api/add/unarchive/${orderId}`, {
         orderStatus: newOrderStatus, // Use the updated state for orderStatus
         notes: newNotes, // Use the updated state for notes
       });
@@ -84,7 +84,7 @@ export default function OnsiteData() {
 
   const fetchArchivedOrders = async () => {
     try {
-        const response = await axios.get('/api/add/archive');
+        const response = await axios.get('https://capstonebackend-td72.onrender.com/api/add/archive');
         setWiewArchieve(response.data); // Fix the typo here
     } catch (error) {
         console.error('Error fetching archived orders:', error);
@@ -109,7 +109,7 @@ useEffect(() => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('/api/product/getProduct');
+      const response = await fetch('https://capstonebackend-td72.onrender.com/api/product/getProduct');
 
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -124,7 +124,7 @@ useEffect(() => {
 
   const fetchServiceData = async () => {
     try {
-      const response = await fetch(`/api/service/addService?serviceType=${encodeURIComponent(formData.serviceType)}`);
+      const response = await fetch(`https://capstonebackend-td72.onrender.com/api/service/addService?serviceType=${encodeURIComponent(formData.serviceType)}`);
       
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -195,7 +195,7 @@ useEffect(() => {
   
     try {
       // Make an HTTP request to your server-side function (replace 'your-api-endpoint' with the actual endpoint)
-      const response = await fetch('/api/add/addOrder', {
+      const response = await fetch('https://capstonebackend-td72.onrender.com/api/add/addOrder', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -242,7 +242,7 @@ useEffect(() => {
 
   const fetchData = async () => {
     try {
-        const response = await axios.get('/api/add/viewOrder');
+        const response = await axios.get('https://capstonebackend-td72.onrender.com/api/add/viewOrder');
         setOrders(response.data);
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -263,7 +263,7 @@ useEffect(() => {
 
 const handleUpdate = async (order) => {
   try {
-      const response = await axios.put(`/api/add/update/${order._id}`, {
+      const response = await axios.put(`https://capstonebackend-td72.onrender.com/api/add/update/${order._id}`, {
           orderStatus,
           paid,
       });
@@ -289,7 +289,7 @@ const handleUpdateNote = async (event) => {
   event.preventDefault();
 
   try {
-      const response = await axios.post(`/api/add/archiveU/${orderID}`, {
+      const response = await axios.post(`https://capstonebackend-td72.onrender.com/api/add/archiveU/${orderID}`, {
           orderStatus: archieveOrder,
           notes: notesOrder,
       });
@@ -491,7 +491,7 @@ useEffect(() => {
     // Function to fetch current date from the server
     const fetchCurrentDate = async () => {
       try {
-        const response = await fetch('/api/add/date'); // Assuming your API endpoint is at /currentDate
+        const response = await fetch('https://capstonebackend-td72.onrender.com/api/add/date'); // Assuming your API endpoint is at /currentDate
         const data = await response.json();
         setCurrentDate(data.currentDate);
       } catch (error) {

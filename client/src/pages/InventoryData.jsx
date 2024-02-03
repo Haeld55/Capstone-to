@@ -16,7 +16,7 @@ export default function InventoryData() {
     
       const fetchProducts = async () => {
         try {
-          const response = await axios.get('/api/product/getProduct');
+          const response = await axios.get('https://capstonebackend-td72.onrender.com/api/product/getProduct');
           setProducts(response.data);
         } catch (error) {
           console.error('Error fetching product data:', error);
@@ -37,7 +37,7 @@ export default function InventoryData() {
         e.preventDefault();
       
         try {
-          const response = await axios.put(`/api/product/updateProduct/${selectedProductId}`, {
+          const response = await axios.put(`https://capstonebackend-td72.onrender.com/api/product/updateProduct/${selectedProductId}`, {
             productPrice: selectedProductPrice,
             productStock: selectedProductStock,
           });
@@ -81,7 +81,7 @@ export default function InventoryData() {
           }
       
           const productIdToDelete = selectedProduct._id;
-          await axios.delete(`/api/product/delete/${productIdToDelete}`);
+          await axios.delete(`https://capstonebackend-td72.onrender.com/api/product/delete/${productIdToDelete}`);
       
           setSelectedProduct(null);
           fetchProducts();
@@ -137,7 +137,7 @@ export default function InventoryData() {
             return;
           }
       
-          const response = await axios.post('/api/product/newProduct', {
+          const response = await axios.post('https://capstonebackend-td72.onrender.com/api/product/newProduct', {
             productName,
             productPrice,
             productStock,

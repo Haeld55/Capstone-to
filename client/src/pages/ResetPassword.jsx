@@ -14,7 +14,7 @@ export default function ResetPassword() {
     const handleResetPassword = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`/api/auth/reset-password/${token}`, { newPassword: password });
+            await axios.post(`https://capstonebackend-td72.onrender.com/api/auth/reset-password/${token}`, { newPassword: password });
             toast.success('Password reset successful', {
                 position: "top-right",
                 autoClose: 3000,

@@ -64,12 +64,12 @@ export default function SampleDashboard2() {
   };
 
   useEffect(() => {
-    fetchData('/api/new/today', setEarnings);
-    fetchData('/api/new/week', setEarningsWeekly);
-    fetchData('/api/new/month', setEarningsMonth);
-    fetchData('/api/add/today', setOnsiteEarnings);
-    fetchData('/api/add/weekly', setOnsiteEarningsWeek);
-    fetchData('/api/add/monthly', setOnsiteEarningsMonth);
+    fetchData('https://capstonebackend-td72.onrender.com/api/new/today', setEarnings);
+    fetchData('https://capstonebackend-td72.onrender.com/api/new/week', setEarningsWeekly);
+    fetchData('https://capstonebackend-td72.onrender.com/api/new/month', setEarningsMonth);
+    fetchData('https://capstonebackend-td72.onrender.com/api/add/today', setOnsiteEarnings);
+    fetchData('https://capstonebackend-td72.onrender.com/api/add/weekly', setOnsiteEarningsWeek);
+    fetchData('https://capstonebackend-td72.onrender.com/api/add/monthly', setOnsiteEarningsMonth);
   }, []);
 
     const [chartWidth, setChartWidth] = useState({

@@ -13,7 +13,7 @@ export default function SettingData() {
 
     try {
       // Make a PUT request to the washUpdate API endpoint
-      const response = await axios.put('/api/service/update', {
+      const response = await axios.put('https://capstonebackend-td72.onrender.com/api/service/update', {
         serviceType: selectedServiceType,
         newCost: newCost,
       });
@@ -53,7 +53,7 @@ export default function SettingData() {
 
   useEffect(() => {
     const fetchWalkInService = () => {
-      fetchData('WalkIn', setWalk, '/api/service/walk');
+      fetchData('WalkIn', setWalk, 'https://capstonebackend-td72.onrender.com/api/service/walk');
     };
     fetchWalkInService();
 
@@ -64,7 +64,7 @@ export default function SettingData() {
 
   useEffect(() => {
     const fetchDropInService = () => {
-      fetchData('DropOff', setDrop, '/api/service/drop');
+      fetchData('DropOff', setDrop, 'https://capstonebackend-td72.onrender.com/api/service/drop');
     };
     fetchDropInService();
 
@@ -75,7 +75,7 @@ export default function SettingData() {
 
   useEffect(() => {
     const fetchWashInService = () => {
-      fetchData('WashAndDry', setWash, '/api/service/wash');
+      fetchData('WashAndDry', setWash, 'https://capstonebackend-td72.onrender.com/api/service/wash');
     };
     fetchWashInService();
 
@@ -86,7 +86,7 @@ export default function SettingData() {
 
   useEffect(() => {
     const fetchSpecialInService = () => {
-      fetchData('SpecialItem', setSpecial, '/api/service/special');
+      fetchData('SpecialItem', setSpecial, 'https://capstonebackend-td72.onrender.com/api/service/special');
     };
     fetchSpecialInService();
 
@@ -100,7 +100,7 @@ export default function SettingData() {
   useEffect(() => {
     const fetchStarDetails = async () => {
       try {
-        const response = await axios.get('/api/star/view'); // Replace with your actual API endpoint
+        const response = await axios.get('https://capstonebackend-td72.onrender.com/api/star/view'); // Replace with your actual API endpoint
         setStarDetails(response.data);
       } catch (error) {
         console.error('Error fetching star details:', error);
@@ -118,7 +118,7 @@ export default function SettingData() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/gcash/gcashV'); // Update the URL based on your server configuration
+        const response = await fetch('https://capstonebackend-td72.onrender.com/api/gcash/gcashV'); // Update the URL based on your server configuration
         const data = await response.json();
         setGcashEntries(data);
       } catch (error) {
@@ -193,7 +193,7 @@ export default function SettingData() {
   
     try {
       // Send the download URL to the server to update the Gcash entry
-      const response = await fetch(`/api/gcash/gcashU/${selectedEntryId}`, {
+      const response = await fetch(`https://capstonebackend-td72.onrender.com/api/gcash/gcashU/${selectedEntryId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -276,7 +276,7 @@ export default function SettingData() {
   const handleSaveToDatabase = () => {
     // Only allow saving to the database if the upload is complete
     if (uploadComplete) {
-      axios.post('/api/gcash/gcash', { QRImage: [downloadURL] })
+      axios.post('https://capstonebackend-td72.onrender.com/api/gcash/gcash', { QRImage: [downloadURL] })
         .then((response) => {
           console.log('Gcash entry created successfully:', response.data);
           // Handle success as needed
@@ -311,7 +311,7 @@ export default function SettingData() {
 
   const fetchArchivedOrders = async () => {
     try {
-      const response = await axios.get('/api/auth/viewTO');
+      const response = await axios.get('https://capstonebackend-td72.onrender.com/api/auth/viewTO');
       setWiewArchieve(response.data.users);
     } catch (error) {
         console.error('Error fetching archived orders:', error);
@@ -335,7 +335,7 @@ useEffect(() => {
 const handleUnArchive = async (orderId) => {
   try {
     // Make a request to your API endpoint with the updated values
-    const response = await axios.put(`api/auth/role/${orderId}`, { // Use the updated state for orderStatus
+    const response = await axios.put(`https://capstonebackend-td72.onrender.com/api/auth/role/${orderId}`, { // Use the updated state for orderStatus
       role: newOrderStatus, // Use the updated state for notes
     });
 

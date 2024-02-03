@@ -94,7 +94,7 @@ export default function Profile() {
     e.preventDefault();
     try {
       dispatch(updateUserStart());
-      const res = await fetch(`/api/user/update/${currentUser._id}`, {
+      const res = await fetch(`https://capstonebackend-td72.onrender.com/api/user/update/${currentUser._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -154,7 +154,7 @@ export default function Profile() {
   const handleSignOut = async () => {
     try {
       dispatch(signOutUserStart());
-      const res = await fetch('/api/auth/signout');
+      const res = await fetch('https://capstonebackend-td72.onrender.com/api/auth/signout');
       const data = await res.json();
       if (data.success === false) {
         dispatch(deleteUserFailure(data.message));

@@ -46,7 +46,7 @@ export default function Reportdata() {
 
     const fetchReport = async () => {
         try {
-          let endpoint = '/api/new/reportMonth';  // Adjust the endpoint accordingly
+          let endpoint = 'https://capstonebackend-td72.onrender.com/api/new/reportMonth';  // Adjust the endpoint accordingly
       
           if (filter === 'month') {
             // Calculate the start and end of the current month
@@ -73,7 +73,7 @@ export default function Reportdata() {
 
     const onReportMonth = async () => {
         try {
-          let endpoint = '/api/add/month';  // Adjust the endpoint accordingly
+          let endpoint = 'https://capstonebackend-td72.onrender.com/api/add/month';  // Adjust the endpoint accordingly
       
           if (filter === 'onsiteMonth') {
             // Calculate the start and end of the current month
@@ -100,7 +100,7 @@ export default function Reportdata() {
 
     const onReportWeek = async () => {
         try {
-          let endpoint = '/api/add/week';  // Adjust the endpoint accordingly
+          let endpoint = 'https://capstonebackend-td72.onrender.com/api/add/week';  // Adjust the endpoint accordingly
       
           if (filter === 'onsiteWeek') {
             // Calculate the start and end of the current month
@@ -127,7 +127,7 @@ export default function Reportdata() {
       
     const onReport = async () => {
         try {
-            const response = await axios.get('/api/add/report'); // Replace with your actual API endpoint
+            const response = await axios.get('https://capstonebackend-td72.onrender.com/api/add/report'); // Replace with your actual API endpoint
             setOnsite(response.data);
             setLoading(false);
           } catch (error) {
@@ -143,7 +143,7 @@ export default function Reportdata() {
   
     const fetchReportWeek = async () => {
       try {
-        let endpoint = '/api/new/reportWeek';
+        let endpoint = 'https://capstonebackend-td72.onrender.com/api/new/reportWeek';
   
         if (filter === 'week') {
           // Calculate the start and end of the current week
@@ -173,7 +173,7 @@ export default function Reportdata() {
     useEffect(() => {
       const fetchReports = async () => {
         try {
-          const response = await axios.get('/api/new/report'); // Replace with your actual API endpoint
+          const response = await axios.get('https://capstonebackend-td72.onrender.com/api/new/report'); // Replace with your actual API endpoint
           setReports(response.data);
           setLoading(false);
         } catch (error) {

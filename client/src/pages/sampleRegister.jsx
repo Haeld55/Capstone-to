@@ -73,7 +73,7 @@ export default function sampleRegister() {
     try {
       setLoading(true);
   
-      const res = await fetch('/api/auth/signup', {
+      const res = await fetch('https://capstonebackend-td72.onrender.com/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

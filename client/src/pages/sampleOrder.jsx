@@ -57,7 +57,7 @@ export default function sampleOrder() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/gcash/gcashV'); // Update the URL based on your server configuration
+        const response = await fetch('https://capstonebackend-td72.onrender.com/api/gcash/gcashV'); // Update the URL based on your server configuration
         const data = await response.json();
         setGcashEntries(data);
       } catch (error) {
@@ -72,7 +72,7 @@ export default function sampleOrder() {
   useEffect(() => {
     const fetchUserOrders = async () => {
       try {
-        const response = await axios.get(`/api/new/viewUserOrder/${currentUser._id}`);
+        const response = await axios.get(`https://capstonebackend-td72.onrender.com/api/new/viewUserOrder/${currentUser._id}`);
         setOrders(response.data);
         setLoading(false);
       } catch (error) {
@@ -89,7 +89,7 @@ export default function sampleOrder() {
   useEffect(() => {
     const fetchUserOrdersToday = async () => {
       try {
-        const response = await axios.get(`/api/new/viewToday/${currentUser._id}`);
+        const response = await axios.get(`https://capstonebackend-td72.onrender.com/api/new/viewToday/${currentUser._id}`);
         setToday(response.data);
         setLoading(false);
       } catch (error) {
@@ -106,7 +106,7 @@ export default function sampleOrder() {
   useEffect(() => {
     const fetchUserOrders = async () => {
       try {
-        const response = await axios.get(`/api/new/archived-orders/${currentUser._id}`);
+        const response = await axios.get(`https://capstonebackend-td72.onrender.com/api/new/archived-orders/${currentUser._id}`);
         setArchieveOrder(response.data);
         setLoading(false);
       } catch (error) {
@@ -206,7 +206,7 @@ export default function sampleOrder() {
 
   const fetchServiceData = async () => {
     try {
-      const response = await fetch(`/api/service/addService?serviceType=${encodeURIComponent(formData.serviceType)}`);
+      const response = await fetch(`https://capstonebackend-td72.onrender.com/api/service/addService?serviceType=${encodeURIComponent(formData.serviceType)}`);
       
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -354,7 +354,7 @@ export default function sampleOrder() {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('/api/product/getProduct');
+      const response = await fetch('https://capstonebackend-td72.onrender.com/api/product/getProduct');
 
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -487,7 +487,7 @@ export default function sampleOrder() {
     }
   
     try {
-      const response = await fetch('/api/new/newOrder', {
+      const response = await fetch('https://capstonebackend-td72.onrender.com/api/new/newOrder', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -575,7 +575,7 @@ export default function sampleOrder() {
       }
   
       // Send a POST request to create a new star
-      const response = await axios.post(`/api/star/feedback/${currentUser._id}`, {
+      const response = await axios.post(`https://capstonebackend-td72.onrender.com/api/star/feedback/${currentUser._id}`, {
         rates,
         notes,
       });

@@ -18,10 +18,10 @@ export default function Service() {
         }
       };
   
-      fetchData('/api/service/wash', setWashService);
-      fetchData('/api/service/special', setSpecialService);
-      fetchData('/api/service/walk', setWalkService);
-      fetchData('/api/service/drop', setDropService);
+      fetchData('https://capstonebackend-td72.onrender.com/api/service/wash', setWashService);
+      fetchData('https://capstonebackend-td72.onrender.com/api/service/special', setSpecialService);
+      fetchData('https://capstonebackend-td72.onrender.com/api/service/walk', setWalkService);
+      fetchData('https://capstonebackend-td72.onrender.com/api/service/drop', setDropService);
     }, []);
 
     const [currentPage, setCurrentPage] = useState('');

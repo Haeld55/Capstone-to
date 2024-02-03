@@ -13,7 +13,7 @@ export default function ForgetPass() {
   
       try {
         setLoading(true); 
-        await axios.post('/api/auth/forget', { email });
+        await axios.post('https://capstonebackend-td72.onrender.com/api/auth/forget', { email });
         toast.success(`Success, We've emailed instructions for resetting your password. Please check your inbox`, {
           position: "top-right",
           autoClose: 3000,
