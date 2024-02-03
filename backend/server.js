@@ -10,6 +10,7 @@ import productRoute from './routes/productRoute.js'
 import userOrderRoute from './routes/userOrderRoute.js'
 import serviceRoute from './routes/serviceRoute.js'
 import cookieParser from 'cookie-parser';
+import cors from 'cors'
 dotenv.config();
 
 mongoose
@@ -25,6 +26,7 @@ mongoose
 const app = express();
 
 app.use(express.json());
+app.use(cors())
 
 app.use(cookieParser());
 
