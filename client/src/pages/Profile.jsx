@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useRef, useState, useEffect } from 'react';
+import axios from 'axios'
 import {
   getDownloadURL,
   getStorage,
@@ -93,14 +94,7 @@ export default function Profile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      dispatch(updateUserStart());
-      const res = await fetch(`https://capstonebackend-td72.onrender.com/api/user/update/${currentUser._id}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const res = await axios.post(`https://capstonebackend-td72.onrender.com/api/user/update/${currentUser._id}`, formData);
       const data = await res.json();
       if (data.success === false) {
         dispatch(updateUserFailure(data.message));

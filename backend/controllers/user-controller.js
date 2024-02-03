@@ -8,9 +8,6 @@ export const test = (req, res) => {
 };
 
 export const updateUser = async (req, res, next) => {
-  if (req.user.id !== req.params.id)
-    return next(errorHandler(401, 'You can only update your own account!'));
-
   try {
     const {
       username,
@@ -62,7 +59,7 @@ export const updateUser = async (req, res, next) => {
     res.status(200).json(updatedUser);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Internal Server Error' });
+    res.status(500).json({ message: 'Internal Server Error', error: error.message });
   }
 };
 

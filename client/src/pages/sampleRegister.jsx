@@ -50,7 +50,21 @@ export default function sampleRegister() {
   };
 
   const isPasswordMatch = () => {
-    return formData.password === formData.passwordConfirmation;
+    if (formData.password === formData.passwordConfirmation) {
+      return formData.password === formData.passwordConfirmation
+    } else {
+      toast.error('Password not equal', {
+        position: "bottom-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+    }
   };
 
   const handleSubmit = async (e) => {
